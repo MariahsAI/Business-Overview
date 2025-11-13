@@ -26,12 +26,15 @@
             padding-bottom: 30px;
             border-bottom: 3px solid transparent;
             border-image: linear-gradient(90deg, transparent, #8a2be2, #00d4ff, #8a2be2, transparent) 1;
+            position: relative;
+            background: radial-gradient(ellipse at center top, rgba(138, 43, 226, 0.3) 0%, rgba(138, 43, 226, 0.15) 30%, transparent 60%);
+            padding-top: 30px;
         }
         
         .logo { 
             width: 180px; 
             margin-bottom: 20px; 
-            filter: drop-shadow(0 0 30px rgba(138, 43, 226, 0.8)); 
+            filter: drop-shadow(0 0 80px rgba(138, 43, 226, 1)) drop-shadow(0 0 120px rgba(138, 43, 226, 0.8)) drop-shadow(0 0 160px rgba(138, 43, 226, 0.6)); 
         }
         
         .main-title {
@@ -82,7 +85,7 @@
         
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             margin-bottom: 40px;
         }
