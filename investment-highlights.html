@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mariah AI — Investment Highlights</title>
+    
+    <!-- Preconnect to CDN for faster loading -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -476,7 +481,6 @@
             }
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -749,11 +753,21 @@
         
     </div>
     
+    <!-- Load Chart.js asynchronously -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    
     <script>
         // Initialize chart after page loads
         document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('growthChart');
-            if (ctx) {
+            // Wait for Chart.js to load
+            function initChart() {
+                if (typeof Chart === 'undefined') {
+                    setTimeout(initChart, 100);
+                    return;
+                }
+                
+                const ctx = document.getElementById('growthChart');
+                if (ctx) {
                 new Chart(ctx, {
                     type: 'line',
                     data: {
@@ -853,6 +867,8 @@
                     }
                 });
             }
+            
+            initChart();
         });
     </script>
 </body>
